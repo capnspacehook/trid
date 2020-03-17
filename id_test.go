@@ -2,6 +2,11 @@ package trid
 
 import "testing"
 
+var (
+	resultID  ID
+	resultStr string
+)
+
 func TestNewID(t *testing.T) {
 	id := New()
 	t.Log(id)
@@ -35,18 +40,20 @@ func BenchmarkNew(b *testing.B) {
 		id = New()
 	}
 
-	b.Log(id)
+	resultID = id
 }
 
 func BenchmarkToString(b *testing.B) {
-	var s string
-	id := New()
+	var (
+		s  string
+		id = New()
+	)
 
 	for n := 0; n < b.N; n++ {
 		s = id.String()
 	}
 
-	b.Log(s)
+	resultStr = s
 }
 
 func BenchmarkFromBytes(b *testing.B) {
@@ -64,7 +71,7 @@ func BenchmarkFromBytes(b *testing.B) {
 		}
 	}
 
-	b.Log(id)
+	resultID = id
 }
 
 func BenchmarkFromString(b *testing.B) {
@@ -82,5 +89,5 @@ func BenchmarkFromString(b *testing.B) {
 		}
 	}
 
-	b.Log(id)
+	resultID = id
 }
