@@ -1,5 +1,7 @@
 # trid
 
+[![GoDoc](https://godoc.org/github.com/capnspacehook/trid?status.svg)](https://godoc.org/github.com/capnspacehook/trid)
+
 ## Totally Random Identifiers
 
 trid is a GUID library built for speed, size, and anonymity. 
@@ -16,6 +18,6 @@ BenchmarkFromString-4           44093491                26.2 ns/op             0
 GUIDs are 12 bytes in length raw, and 20 characters in length encoded as strings. Base32 encoding is used
 so that the non alphanumeric characters of base64 don't cause a problem.
 
-trid was heavily inspired by `github.com/rs/xid`, much of the code is taken from there. This repository was
+trid was heavily inspired by [xid](https://github.com/rs/xid), much of the code is taken from there. This repository was
 necessary for me as I do not want PIDs, timestamps, or machine identifiers in my GUIDs, and I don't care if
 my GUIDs are sortable.
